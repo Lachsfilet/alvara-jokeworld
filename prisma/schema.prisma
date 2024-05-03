@@ -11,17 +11,20 @@ datasource db {
 }
 
 enum Genre {
+    GENERAL
     DARK_HUMOR
     YOUR_MAMA
     DAD_JOKES
 }
 
-model Post {
+model Joke {
     id        Int      @id @default(autoincrement())
-    name      String
+    joke      String
+    laugths   Int
+    gerne     Genre
+    authorID  String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    gerne     Genre
 
-    @@index([name])
+    @@index([joke])
 }
